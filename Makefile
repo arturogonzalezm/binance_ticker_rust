@@ -42,3 +42,7 @@ logs:
 
 db-shell:
 	docker exec -it binanceticker_pgdata psql -U postgres -d postgres
+
+run:
+	cargo run
+

@@ -1,4 +1,5 @@
-![Build Status](https://github.com/arturogonzalezm/binance_ticker_rust/actions/workflows/workflow.yml/badge.svg)
+[![Build Status](https://github.com/arturogonzalezm/binance_ticker_rust/actions/workflows/workflow.yml/badge.svg)](https://github.com/arturogonzalezm/binance_ticker_rust/actions/workflows/workflow.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-purple.svg)](https://opensource.org/licenses/MIT)
 
 # Binance Ticker
 

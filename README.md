@@ -32,6 +32,7 @@ graph TD
 
 - Rust (latest stable version)
 - Docker and Docker Compose
+- Make (for using the Makefile)
 
 ### Steps
 
@@ -49,16 +50,57 @@ graph TD
    DB_NAME=postgres
    ```
 
-3. Start the PostgreSQL database using Docker Compose:
-   ```
-   docker-compose up -d
-   ```
+3. Use the Makefile to manage the project:
 
-4. Build and run the Rust application:
-   ```
-   cargo build --release
-   cargo run --release
-   ```
+   - To see all available commands:
+     ```
+     make help
+     ```
+
+   - To build Docker images and start containers:
+     ```
+     make all
+     ```
+
+   - To rebuild from scratch:
+     ```
+     make rebuild
+     ```
+
+   - To stop containers:
+     ```
+     make down
+     ```
+
+   - To view logs:
+     ```
+     make logs
+     ```
+
+   - To access the PostgreSQL shell:
+     ```
+     make db-shell
+     ```
+
+   - To run the Rust application:
+     ```
+     make run
+     ```
+
+## Using the Makefile
+
+The project includes a Makefile to simplify common tasks. Here's a breakdown of the available commands:
+
+- `make help`: Show the list of available commands with descriptions.
+- `make all`: Build Docker images and start containers (default action).
+- `make rebuild`: Clean, rebuild, and start containers from scratch.
+- `make build`: Build Docker images without using cache.
+- `make up`: Start Docker containers in detached mode.
+- `make down`: Stop Docker containers.
+- `make clean`: Remove Docker volumes.
+- `make logs`: Show logs for all containers.
+- `make db-shell`: Access the PostgreSQL shell.
+- `make run`: Run the Rust application.
 
 ## Database Schema
 
@@ -108,6 +150,7 @@ erDiagram
 .
 ├── Cargo.toml
 ├── docker-compose.yml
+├── Makefile
 ├── database/
 │   └── init.sql
 └── src/
@@ -119,6 +162,7 @@ erDiagram
 - `main.rs`: Contains the main application logic, WebSocket handling, and database insertion.
 - `observer.rs`: Implements the Observer pattern for flexible data handling.
 - `ticker.rs`: Defines the `Ticker` struct and its serialization/deserialization.
+- `Makefile`: Provides convenient commands for managing the project.
 
 ## Future Improvements
 
@@ -135,3 +179,4 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## License
 
 This project is open-source and available under the [MIT License](LICENSE).
+
